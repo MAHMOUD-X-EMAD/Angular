@@ -1,0 +1,52 @@
+<p>register works!</p>
+<div class="container">
+    <form  #userForm="ngForm" [formGroup]="MyForm">
+        
+        <div class="form-group">
+            <label>User Name</label>
+            <input type="text" required name="txtName" pattern="[a-zA-Z]+" [class.is-invalid]="userName?.invalid &&userName?.touched" formControlName="userName" [(ngModel)]="newUser.Username" ngModel  class="form-control">
+            <div *ngIf="userName?.invalid &&userName?.touched">
+                <small *ngIf="userName?.errors?.['required']" class="text-danger">User Name is required</small>
+                <small *ngIf="userName?.errors?.['pattern']" class="text-danger">user name must contain characters only</small>
+                <!-- <small class="text-danger" *ngIf="userName?.errors?.['forbiddenName']">{{userName?.errors?.['forbiddenName'].value}} is not allowed</small> -->
+            </div>
+        </div>
+
+        <div class="from-group">
+            <label>Email :</label>
+            <input type="email" pattern="^[\w.+\-]+@gmail\.com$" [class.is-invalid]="email?.invalid &&email?.touched" formControlName="email" name="txtEmail" [(ngModel)]="newUser.email" ngModel class="form-control">
+            <div *ngIf="email?.invalid &&email?.touched">
+                <small *ngIf="email?.errors?.['required']" class="text-danger">Email is required</small>
+                <small *ngIf="email?.errors?.['pattern']" class="text-danger">Invalid Email</small>
+                <!-- <small class="text-danger" *ngIf="userName?.errors?.['forbiddenName']">{{userName?.errors?.['forbiddenName'].value}} is not allowed</small> -->
+            </div>
+        </div>
+
+        <div class="from-group">
+            <label>Password :</label>
+            <input type="email" required [class.is-invalid]="Password.invalid" #Password="ngModel" name="txtPassword"  [(ngModel)]="newUser.password" ngModel class="form-control">
+            <small class="text-danger" *ngIf="Password.invalid&&Password.touched">Password is required</small>
+
+        </div>
+
+        <div class="from-group">
+            <label>Confirm Password :</label>
+            <input type="email" required [class.is-invalid]="ConfPassword.invalid" #ConfPassword="ngModel" name="txtConfPassword" [(ngModel)]="newUser.ConfPassword" ngModel class="form-control">
+            <small class="text-danger" *ngIf="ConfPassword.invalid&&ConfPassword.touched">This field is required</small>
+            <small class="text-danger" *ngIf="!(ConfPassword.value==Password.value)">Must Be Matched</small>
+            <small class="text-danger" *ngIf="MyForm.errors?.['misMatch']">Password and confirm password not match</small>
+
+        </div>
+
+        <div class="from-group">
+            <select class="custom-select" [(ngModel)]="newUser.topic" name="ddlTopic" #topic="ngModel" >
+                <option *ngFor="let topic of arr">
+                    {{topic}}
+                </option>
+            </select>
+        </div>
+
+        <input type="submit" [disabled]="userForm.form.invalid" class="btn btn-primary" value="Register">
+
+    </form>
+</div>

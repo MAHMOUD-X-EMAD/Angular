@@ -1,0 +1,11 @@
+<p>users works!</p>
+
+<div class="card container-fluid col-12" style="width: 18rem;" *ngFor="let user of listOfUsers">
+   
+    <div class="card-body">
+      <h5 class="card-title">{{user.username}}</h5>
+      <p class="card-text">{{user.name}}</p>
+      <a href="#" class="btn btn-primary">{{user.email}}</a>
+    </div>
+  </div>
+  

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style>
+      #bannerimage {
+        width: 100%;
+        background-image: url(http://s30.postimg.org/x0ne0p5wx/bootsrap.png);
+        height: 700px;
+        background-color: rgb(241, 200, 241);
+        background-position: center;
+      }
+      </style>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/5.0.0/css/bootstrap.min.css" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" routerLink="/posts" (click)="onSelectPosts()">Posts</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" routerLink="/login" (click)="onSelectLogin()">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" routerLink="/register" (click)="onSelectRegister()">Register</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" routerLink="/notes" (click)="onSelectNotes()">Notes</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/users" (click)="onSelectUser()">Users</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/products" (click)="onSelectProducts()">Products</a>
+            </li>
+            
+          </ul>
+          <form class="d-flex">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+  
+    <!-- <div id="bannerimage"><img width="100%" height="100%" src="/assets/16 очаровательных зверенышей, на которых вам срочно нужно посмотреть!.jpg"></div> -->
+</body>
+</html>

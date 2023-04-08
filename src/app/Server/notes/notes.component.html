@@ -1,0 +1,52 @@
+<p>Hi works!</p>
+<div class="container">
+    <form  #userForm="ngForm" [formGroup]="MyForm">
+        
+        <div class="form-group">
+            <label>User Name</label>
+            <input type="text" required name="txtName"  [class.is-invalid]="userName?.invalid &&userName?.touched" formControlName="userName" [(ngModel)]="newUser.Username" ngModel  class="form-control">
+            <div *ngIf="userName?.invalid &&userName?.touched">
+                <small *ngIf="userName?.errors?.['required']" class="text-danger">User Name is required</small>
+                <small *ngIf="userName?.errors?.['pattern']" class="text-danger">user name must contain characters only</small>
+                <small class="text-danger" *ngIf="userName?.errors?.['forbiddenName']">{{userName?.errors?.['forbiddenName'].value}} is not allowed</small>
+            </div>
+        </div>
+
+        <div class="from-group">
+            <label>Email :</label>
+            <input type="email" pattern="^[\w.+\-]+@gmail\.com$"  [class.is-invalid]="email?.invalid &&email?.touched" formControlName="email" name="txtEmail" [(ngModel)]="newUser.email" ngModel class="form-control">
+            <div *ngIf="email?.invalid &&email?.touched">
+                <small *ngIf="email?.errors?.['required']" class="text-danger">Email is required</small>
+                <small *ngIf="email?.errors?.['pattern']" class="text-danger">Invalid Email</small>
+                <!-- <small class="text-danger" *ngIf="userName?.errors?.['forbiddenName']">{{userName?.errors?.['forbiddenName'].value}} is not allowed</small> -->
+            </div>
+        </div>
+
+        
+
+        <div class="form-check mb-3">
+            <input type="checkbox" id="che"
+                   formControlName="subscribe"
+                   class="form-check-input">
+             <label class="form-check-label">Send me offers</label>      
+        </div>
+
+        <div class="from-group">
+            <label>Discount</label>
+            <input type="number"  required  class="form-control">
+            
+        </div>
+        
+
+        <div class="from-group">
+            <select class="custom-select" [(ngModel)]="newUser.topic" name="ddlTopic" #topic="ngModel" >
+                <option *ngFor="let topic of arr">
+                    {{topic}}
+                </option>
+            </select>
+        </div>
+
+        <input type="submit" [disabled]="userForm.form.invalid" class="btn btn-primary" value="Register">
+
+    </form>
+</div>

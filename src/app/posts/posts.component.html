@@ -1,0 +1,12 @@
+<p>posts works!</p>
+<div class="d-inline">
+<div class="card container-fluid col-12" style="width: 50rem;" *ngFor="let user of listOfPosts">
+    
+    <div class="card-body">
+      <h5 class="card-title">{{user.id}}</h5>
+      <p class="card-text">{{user.title}}</p>
+      <a routerLink="/comments" class="btn btn-primary" (click)="onSelect(this.user)">{{user.body}}</a>
+    </div>
+  </div>
+
+</div>

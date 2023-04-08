@@ -1,0 +1,25 @@
+<p>parent works!</p>
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">Price</th>
+        <th scope="col">Quatity</th>
+        <th scope="col">Image</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let pro of productsFromChild">
+        <th scope="row">{{pro.ID}}</th>
+        <td>{{pro.Name | uppercase}}</td>
+        <td>{{pro.Price}}</td>
+        <td>{{pro.Quantity}}</td>
+        <td><img width="100" [src]="pro.Img"></td>
+      </tr>
+      
+    </tbody>
+  </table>
+
+  
+<app-child (ShowEvent)="productsFromChild = $event"></app-child>

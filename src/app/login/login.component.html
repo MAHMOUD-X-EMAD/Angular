@@ -1,0 +1,26 @@
+<p>login works!</p>
+
+<div class="container">
+    <form  #userForm="ngForm">
+       
+        <div class="from-group">
+            <label>Email :</label>
+            <input type="email" required [class.is-invalid]="email.invalid" #email="ngModel" name="txtEmail"  ngModel class="form-control">
+            <small class="text-danger" *ngIf="email.invalid&&email.touched">Email is required</small>
+        </div>
+
+        <div class="from-group">
+            <label>Password :</label>
+            <input type="email" required [class.is-invalid]="Password.invalid" #Password="ngModel" name="txtPassword"  ngModel class="form-control">
+            <small class="text-danger" *ngIf="Password.invalid&&Password.touched">Password is required</small>
+
+        </div>
+
+        
+
+       
+
+        <input type="submit" [disabled]="userForm.form.invalid" class="btn btn-primary" value="Login">
+
+    </form>
+</div>
